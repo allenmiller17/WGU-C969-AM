@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WGU_C969_AM
 {
-    public partial class Form1 : Form
+    public partial class CreateCustomer : Form
     {
-        public Form1()
+        public CreateCustomer()
         {
             InitializeComponent();
         }

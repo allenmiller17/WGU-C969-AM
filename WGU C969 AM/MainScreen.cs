@@ -1,0 +1,225 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+namespace WGU_C969_AM
+{
+    public partial class MainScreen : Form
+    {
+
+        public Login login;
+
+        public MainScreen()
+        {
+            InitializeComponent();
+            CalendarDGV.DataSource = getCalendar(WeekRadio.Checked);
+            reminder(CalendarDGV);
+        }
+
+        private void MainScreen_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public static void reminder(DataGridView calendar)
+        {
+            foreach (DataGridViewRow row in calendar.Rows)
+            {
+                DateTime now = DateTime.UtcNow;
+                DateTime start = DateTime.Parse(row.Cells[2].Value.ToString()).ToUniversalTime();
+                TimeSpan toStartOfAppointment = now - start;
+                if (toStartOfAppointment.TotalMinutes >= 15 && toStartOfAppointment.TotalMinutes < 1)
+                {
+                    MessageBox.Show($"Reminder: You have a meeting with {row.Cells[4].Value} at {row.Cells[2].Value}");
+                }
+            }
+        }
+
+        public static Array getCalendar(bool weekView)
+        {
+            MySqlConnection n = new MySqlConnection(Data.conString);
+            n.Open();
+
+            // Queries the DataBase for all the appointments associated with the logged in user
+            string query = $"SELECT customerId, type, start, end, appointmentId, userId FROM appointment WHERE userid = '{Data.getCurrentUserId()}'";
+            MySqlCommand c = new MySqlCommand(query, n);
+            MySqlDataReader r = c.ExecuteReader();
+
+            Dictionary<int, Hashtable> appointments = new Dictionary<int, Hashtable>();
+
+            // Creates a dictionary of all the appointments
+            while (r.Read())
+            {
+
+                Hashtable appointment = new Hashtable();
+                appointment.Add("customerId", r[0]);
+                appointment.Add("type", r[1]);
+                appointment.Add("start", r[2]);
+                appointment.Add("end", r[3]);
+                appointment.Add("userId", r[5]);
+
+                appointments.Add(Convert.ToInt32(r[4]), appointment);
+
+            }
+            r.Close();
+
+            // Assigns the proper Username to each Appointment dictionary
+            foreach (var app in appointments.Values)
+            {
+                query = $"SELECT userName FROM user WHERE userId = '{app["userId"]}'";
+                c = new MySqlCommand(query, n);
+                r = c.ExecuteReader();
+                r.Read();
+                app.Add("userName", r[0]);
+                r.Close();
+            }
+
+            // Assigns the proper CustomerName to each Appointment dictionary
+            foreach (var app in appointments.Values)
+            {
+                query = $"SELECT customerName FROM customer WHERE customerId = '{app["customerId"]}'";
+                c = new MySqlCommand(query, n);
+                r = c.ExecuteReader();
+                r.Read();
+                app.Add("customerName", r[0]);
+                r.Close();
+            }
+
+            Dictionary<int, Hashtable> parsedAppointments = new Dictionary<int, Hashtable>();
+
+            // Adjusts appointments that will end up in calendar based on if the Week or Month view is chosen.
+            foreach (var app in appointments)
+            {
+                DateTime startTime = DateTime.Parse(app.Value["start"].ToString());
+                DateTime endTime = DateTime.Parse(app.Value["end"].ToString());
+                DateTime today = DateTime.UtcNow;
+
+                if (weekView)
+                {
+                    DateTime sunday = today.AddDays(-(int)today.DayOfWeek);
+                    DateTime saturday = today.AddDays(-(int)today.DayOfWeek + (int)DayOfWeek.Saturday);
+
+                    if (startTime >= sunday && endTime < saturday)
+                    {
+                        // only include the appointments that get here
+                        parsedAppointments.Add(app.Key, app.Value);
+                    }
+                }
+                else
+                {
+                    DateTime firstDayOfMonth = new DateTime(today.Year, today.Month, 1);
+                    DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                    if (startTime >= firstDayOfMonth && endTime < lastDayOfMonth)
+                    {
+                        //  only include appointments that get here
+                        parsedAppointments.Add(app.Key, app.Value);
+                    }
+                }
+            }
+
+            Data.setAppointments(appointments);
+            // Forms final datasource of calendar that will be shown to user
+            var appointmentArray = from row in parsedAppointments
+                                   select new
+                                   {
+                                       ID = row.Key,
+                                       Type = row.Value["type"],
+                                       StartTime = Data.convertToTimezone(row.Value["start"].ToString()),
+                                       EndTime = Data.convertToTimezone(row.Value["end"].ToString()),
+                                       Customer = row.Value["customerName"]
+                                   };
+
+            n.Close();
+
+            return appointmentArray.ToArray();
+        }
+
+        public void calendarUpdate()
+        {
+            if (WeekRadio.Checked)
+            {
+                CalendarDGV.DataSource = getCalendar(WeekRadio.Checked);
+            }
+            else
+            {
+                CalendarDGV.DataSource = getCalendar(MonthRadio.Checked);
+            }
+        }
+        
+        private void AddCustButton_Click(object sender, EventArgs e)
+        {
+            CreateCustomer createCustomer = new CreateCustomer();
+            createCustomer.Show();
+        }
+
+        private void EditCustButton_Click(object sender, EventArgs e)
+        {
+            EditCustomer editCustomer = new EditCustomer();
+            editCustomer.Show();
+        }
+
+        private void DeleteCustButton_Click(object sender, EventArgs e)
+        {
+            DeleteCustomer deleteCustomer = new DeleteCustomer();
+            deleteCustomer.Show();
+        }
+
+        private void MainScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            login.Close();
+        }
+
+        private void AppointmentButton_Click(object sender, EventArgs e)
+        {
+            AppointmentCount appointmentCount = new AppointmentCount();
+            appointmentCount.Show();
+        }
+
+        private void SchedulesButton_Click(object sender, EventArgs e)
+        {
+            Schedules schedules = new Schedules();
+            schedules.Show();
+        }
+
+        private void ReportButton_Click(object sender, EventArgs e)
+        {
+            CustomerReport customerReport = new CustomerReport();
+            customerReport.Show();
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddAppointment addAppointment = new AddAppointment();
+            addAppointment.mainScreen = this;
+            addAppointment.Show();
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            EditAppointment editAppointment = new EditAppointment();
+            editAppointment.mainScreen = this;
+            editAppointment.Show();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            DeleteAppointment deleteAppointment = new DeleteAppointment();
+            deleteAppointment.mainScreen = this;
+            deleteAppointment.Show();
+        }
+
+        private void WeekRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            calendarUpdate();
+        }
+
+        private void MonthRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            calendarUpdate();
+        }
+    }
+}

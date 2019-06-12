@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace WGU_C969_AM
 {
-    static class Program
+    static class Application
     {
         /// <summary>
         /// The main entry point for the application.
@@ -14,9 +14,10 @@ namespace WGU_C969_AM
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            System.Windows.Forms.Application.Run(new Login());
         }
     }
 }
+
