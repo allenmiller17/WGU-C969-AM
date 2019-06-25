@@ -49,6 +49,7 @@
             this.CountDGV.Name = "CountDGV";
             this.CountDGV.Size = new System.Drawing.Size(294, 304);
             this.CountDGV.TabIndex = 1;
+            this.CountDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CountDGV_CellContentClick);
             // 
             // AppointmentCount
             // 
