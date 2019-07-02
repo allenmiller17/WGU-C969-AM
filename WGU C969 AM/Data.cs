@@ -14,7 +14,7 @@ namespace WGU_C969_AM
         private static Dictionary<int, Hashtable> _appointments = new Dictionary<int, Hashtable>();
         private static int _currentUserId;
         private static string _currentUserName;
-        public static string conString = "server=52.206.157.109 ;database=U04Lvo;uid=U04Lvo;pwd=53688274279;";
+        public static string conString = "server=52.206.157.109;database=U04Lvo;uid=U04Lvo;pwd=53688274279;";
 
         public static int getCurrentUserId()
         {
@@ -208,5 +208,7 @@ namespace WGU_C969_AM
 
             return localDateTime.ToString("MM/dd/yyyy hh:mm tt");
         }
+
+        public string[] Country = new string[3] { "United States of America", "Canada", "Mexico" };
     }
 }

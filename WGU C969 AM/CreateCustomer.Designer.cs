@@ -185,6 +185,7 @@
             this.CancelButton.TabIndex = 15;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // CreateButton
             // 
@@ -194,6 +195,7 @@
             this.CreateButton.TabIndex = 16;
             this.CreateButton.Text = "Create";
             this.CreateButton.UseVisualStyleBackColor = true;
+            this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
             // 
             // CountryBox
             // 
@@ -203,6 +205,7 @@
             this.CountryBox.Size = new System.Drawing.Size(121, 21);
             this.CountryBox.TabIndex = 17;
             this.CountryBox.Text = "Select Country";
+            this.CountryBox.SelectedIndexChanged += new System.EventHandler(this.CountryBox_SelectedIndexChanged);
             // 
             // CreateCustomer
             // 
@@ -229,6 +232,7 @@
             this.Controls.Add(this.CreateCustomerLabel);
             this.Name = "CreateCustomer";
             this.Text = "Create Customer";
+            this.Load += new System.EventHandler(this.CreateCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

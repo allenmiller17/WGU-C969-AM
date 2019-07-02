@@ -35,7 +35,7 @@ namespace WGU_C969_AM
         {
             MySqlConnection u = new MySqlConnection(Data.conString);
             u.Open();
-            MySqlCommand c = new MySqlCommand($"SELECT userId FROM user WHERE userName = '{userName}' AND '{password}'", u);
+            MySqlCommand c = new MySqlCommand($"SELECT * FROM user WHERE userName = '{userName}' AND password = '{password}'", u);
             MySqlDataReader d = c.ExecuteReader();
 
             if (d.HasRows)

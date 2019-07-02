@@ -82,5 +82,10 @@ namespace WGU_C969_AM
         {
 
         }
+
+        private void AppointmentCount_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

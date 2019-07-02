@@ -60,6 +60,7 @@
             this.Controls.Add(this.CountLabel);
             this.Name = "AppointmentCount";
             this.Text = "Appointment Count";
+            this.Load += new System.EventHandler(this.AppointmentCount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CountDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
