@@ -191,6 +191,7 @@
             this.SaveButton.TabIndex = 16;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // SearchButton
             // 
@@ -200,6 +201,7 @@
             this.SearchButton.TabIndex = 17;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // NoRadio
             // 

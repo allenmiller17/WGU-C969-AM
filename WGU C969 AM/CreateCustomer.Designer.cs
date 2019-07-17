@@ -125,35 +125,35 @@
             this.NameBox.Location = new System.Drawing.Point(145, 65);
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(100, 20);
-            this.NameBox.TabIndex = 8;
+            this.NameBox.TabIndex = 1;
             // 
             // CityBox
             // 
             this.CityBox.Location = new System.Drawing.Point(145, 220);
             this.CityBox.Name = "CityBox";
             this.CityBox.Size = new System.Drawing.Size(100, 20);
-            this.CityBox.TabIndex = 9;
+            this.CityBox.TabIndex = 4;
             // 
             // ZipBox
             // 
             this.ZipBox.Location = new System.Drawing.Point(145, 275);
             this.ZipBox.Name = "ZipBox";
             this.ZipBox.Size = new System.Drawing.Size(100, 20);
-            this.ZipBox.TabIndex = 10;
+            this.ZipBox.TabIndex = 5;
             // 
             // AddressBox
             // 
             this.AddressBox.Location = new System.Drawing.Point(145, 164);
             this.AddressBox.Name = "AddressBox";
             this.AddressBox.Size = new System.Drawing.Size(100, 20);
-            this.AddressBox.TabIndex = 11;
+            this.AddressBox.TabIndex = 3;
             // 
             // PhoneBox
             // 
             this.PhoneBox.Location = new System.Drawing.Point(145, 114);
             this.PhoneBox.Name = "PhoneBox";
             this.PhoneBox.Size = new System.Drawing.Size(100, 20);
-            this.PhoneBox.TabIndex = 12;
+            this.PhoneBox.TabIndex = 2;
             // 
             // ActiveYesRadio
             // 
@@ -161,10 +161,11 @@
             this.ActiveYesRadio.Location = new System.Drawing.Point(145, 376);
             this.ActiveYesRadio.Name = "ActiveYesRadio";
             this.ActiveYesRadio.Size = new System.Drawing.Size(43, 17);
-            this.ActiveYesRadio.TabIndex = 13;
+            this.ActiveYesRadio.TabIndex = 7;
             this.ActiveYesRadio.TabStop = true;
             this.ActiveYesRadio.Text = "Yes";
             this.ActiveYesRadio.UseVisualStyleBackColor = true;
+            this.ActiveYesRadio.CheckedChanged += new System.EventHandler(this.ActiveYesRadio_CheckedChanged);
             // 
             // ActiveNoRadio
             // 
@@ -172,7 +173,7 @@
             this.ActiveNoRadio.Location = new System.Drawing.Point(229, 376);
             this.ActiveNoRadio.Name = "ActiveNoRadio";
             this.ActiveNoRadio.Size = new System.Drawing.Size(39, 17);
-            this.ActiveNoRadio.TabIndex = 14;
+            this.ActiveNoRadio.TabIndex = 8;
             this.ActiveNoRadio.TabStop = true;
             this.ActiveNoRadio.Text = "No";
             this.ActiveNoRadio.UseVisualStyleBackColor = true;
@@ -182,7 +183,7 @@
             this.CancelButton.Location = new System.Drawing.Point(229, 415);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 15;
+            this.CancelButton.TabIndex = 10;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -192,7 +193,7 @@
             this.CreateButton.Location = new System.Drawing.Point(113, 415);
             this.CreateButton.Name = "CreateButton";
             this.CreateButton.Size = new System.Drawing.Size(75, 23);
-            this.CreateButton.TabIndex = 16;
+            this.CreateButton.TabIndex = 9;
             this.CreateButton.Text = "Create";
             this.CreateButton.UseVisualStyleBackColor = true;
             this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
@@ -203,7 +204,7 @@
             this.CountryBox.Location = new System.Drawing.Point(145, 322);
             this.CountryBox.Name = "CountryBox";
             this.CountryBox.Size = new System.Drawing.Size(121, 21);
-            this.CountryBox.TabIndex = 17;
+            this.CountryBox.TabIndex = 6;
             this.CountryBox.Text = "Select Country";
             this.CountryBox.SelectedIndexChanged += new System.EventHandler(this.CountryBox_SelectedIndexChanged);
             // 

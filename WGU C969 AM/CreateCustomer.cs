@@ -22,6 +22,7 @@ namespace WGU_C969_AM
             CountryBox.Items.Add("Canada");
             CountryBox.Items.Add("Mexico");
             CountryBox.Items.Add("United States of America");
+            ActiveYesRadio.Checked = true;
         }
 
         private void CreateButton_Click(object sender, EventArgs e)
@@ -58,6 +59,11 @@ namespace WGU_C969_AM
         }
 
         private void CountryBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ActiveYesRadio_CheckedChanged(object sender, EventArgs e)
         {
 
         }

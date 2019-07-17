@@ -66,24 +66,26 @@
             // 
             // PasswordBox
             // 
+            this.PasswordBox.AcceptsTab = true;
             this.PasswordBox.Location = new System.Drawing.Point(137, 242);
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.Size = new System.Drawing.Size(202, 20);
-            this.PasswordBox.TabIndex = 3;
+            this.PasswordBox.TabIndex = 2;
             // 
             // UsernameBox
             // 
+            this.UsernameBox.AcceptsTab = true;
             this.UsernameBox.Location = new System.Drawing.Point(137, 161);
             this.UsernameBox.Name = "UsernameBox";
             this.UsernameBox.Size = new System.Drawing.Size(202, 20);
-            this.UsernameBox.TabIndex = 4;
+            this.UsernameBox.TabIndex = 1;
             // 
             // ExitButton
             // 
             this.ExitButton.Location = new System.Drawing.Point(264, 380);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(75, 23);
-            this.ExitButton.TabIndex = 5;
+            this.ExitButton.TabIndex = 4;
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
@@ -93,7 +95,7 @@
             this.LoginButton.Location = new System.Drawing.Point(137, 380);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(75, 23);
-            this.LoginButton.TabIndex = 6;
+            this.LoginButton.TabIndex = 3;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
