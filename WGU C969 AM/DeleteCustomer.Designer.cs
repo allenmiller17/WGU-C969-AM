@@ -129,6 +129,7 @@
             this.SearchButton.TabIndex = 9;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // DeleteButton
             // 
@@ -138,6 +139,7 @@
             this.DeleteButton.TabIndex = 10;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // CancelButton
             // 
@@ -147,6 +149,7 @@
             this.CancelButton.TabIndex = 11;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // DeleteCustomer
             // 
@@ -167,6 +170,7 @@
             this.Controls.Add(this.SearchLabel);
             this.Name = "DeleteCustomer";
             this.Text = "Delete Customer";
+            this.Load += new System.EventHandler(this.DeleteCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

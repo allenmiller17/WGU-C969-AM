@@ -53,16 +53,16 @@ namespace WGU_C969_AM
 
             #region Edit City
             newEdit = $"UPDATE city" +
-                    $" SET city = '{editedForm["city"]}'" +
+                    $" SET city = '{editedForm["city"]}'," +
                     $" lastUpdate = '{Data.createTimestamp()}', lastUpdateBy = '{Data.getCurrentUserName()}'" +
-                    $" WHERE city = '{custForm["city"]}'"; ;
+                    $" WHERE city = '{custForm["city"]}'";
             cmd = new MySqlCommand(newEdit, con);
             int cityEdited = cmd.ExecuteNonQuery();
             #endregion
 
             #region Edit Country
             newEdit = $"UPDATE country" +
-                    $" SET country = '{editedForm["country"]}'" +
+                    $" SET country = '{editedForm["country"]}'," +
                     $" lastUpdate = '{Data.createTimestamp()}', lastUpdateBy = '{Data.getCurrentUserName()}'" +
                     $" WHERE country = '{custForm["country"]}'";
             cmd = new MySqlCommand(newEdit, con);
@@ -132,6 +132,7 @@ namespace WGU_C969_AM
             if (editCustomer(editedForm))
             {
                 MessageBox.Show("Success!");
+                this.Close();
             }
             else
             {
