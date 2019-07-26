@@ -71,6 +71,7 @@
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.Size = new System.Drawing.Size(202, 20);
             this.PasswordBox.TabIndex = 2;
+            this.PasswordBox.UseSystemPasswordChar = true;
             // 
             // UsernameBox
             // 

@@ -183,20 +183,20 @@ namespace WGU_C969_AM
         static public Dictionary<string, string> getAppointmentDetails(string appointmentId)
         {
             string query = $"SELECT * FROM appointment WHERE appointmentId = '{appointmentId}'";
-            MySqlConnection c = new MySqlConnection(Data.conString);
-            c.Open();
-            MySqlCommand cmd = new MySqlCommand(query, c);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-            rdr.Read();
+            MySqlConnection con = new MySqlConnection(Data.conString);
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataReader read = cmd.ExecuteReader();
+            read.Read();
 
             Dictionary<string, string> appointmentDict = new Dictionary<string, string>();
             // Customer Table Details
             appointmentDict.Add("appointmentId", appointmentId);
-            appointmentDict.Add("customerId", rdr[1].ToString());
-            appointmentDict.Add("type", rdr[13].ToString());
-            appointmentDict.Add("start", rdr[7].ToString());
-            appointmentDict.Add("end", rdr[8].ToString());
-            rdr.Close();
+            appointmentDict.Add("customerId", read[1].ToString());
+            appointmentDict.Add("type", read[7].ToString());
+            appointmentDict.Add("start", read[9].ToString());
+            appointmentDict.Add("end", read[10].ToString());
+            read.Close();
 
             return appointmentDict;
         }

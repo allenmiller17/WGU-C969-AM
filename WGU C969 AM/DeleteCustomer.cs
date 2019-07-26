@@ -81,20 +81,20 @@ namespace WGU_C969_AM
             if (customerId != 0)
             {
                 custInfo = Data.getCustomerDetails(customerId);
-                NameLabel.Text = custInfo["customerName"];
-                PhoneLabel.Text = custInfo["phone"];
-                AddressLabel.Text = custInfo["address"];
-                CityLabel.Text = custInfo["city"];
-                ZipLabel.Text = custInfo["zip"];
-                CountryLabel.Text = custInfo["country"];
+                NameBox.Text = custInfo["customerName"];
+                PhoneBox.Text = custInfo["phone"];
+                AddressBox.Text = custInfo["address"];
+                CityBox.Text = custInfo["city"];
+                ZipBox.Text = custInfo["zip"];
+                CountryBox.Text = custInfo["country"];
 
                 if (custInfo["active"] == "True")
                 {
-                    ActiveLabel.Text = "True";
+                    ActiveBox.Text = "True";
                 }
                 else
                 {
-                    ActiveLabel.Text = "False"; ;
+                    ActiveBox.Text = "False"; ;
                 }
             }
             else

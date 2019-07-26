@@ -110,6 +110,8 @@ namespace WGU_C969_AM
 
                 ex.appointmentOverlap();
             }
+
+            this.Close();
         }
 
         private void CancelAppointmentButton_Click(object sender, EventArgs e)

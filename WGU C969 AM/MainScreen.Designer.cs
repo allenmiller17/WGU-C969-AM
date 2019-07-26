@@ -46,8 +46,12 @@
             this.AddCustButton = new System.Windows.Forms.Button();
             this.CustomerGB = new System.Windows.Forms.GroupBox();
             this.CalendarGB = new System.Windows.Forms.GroupBox();
+            this.ReportsGroupBox = new System.Windows.Forms.GroupBox();
+            this.CloseButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CalendarDGV)).BeginInit();
             this.CustomerGB.SuspendLayout();
+            this.CalendarGB.SuspendLayout();
+            this.ReportsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // HomeLabel
@@ -74,7 +78,7 @@
             // 
             this.ReportsLabel.AutoSize = true;
             this.ReportsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportsLabel.Location = new System.Drawing.Point(509, 112);
+            this.ReportsLabel.Location = new System.Drawing.Point(63, 37);
             this.ReportsLabel.Name = "ReportsLabel";
             this.ReportsLabel.Size = new System.Drawing.Size(51, 13);
             this.ReportsLabel.TabIndex = 2;
@@ -93,20 +97,26 @@
             // 
             // CalendarDGV
             // 
+            this.CalendarDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CalendarDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CalendarDGV.Location = new System.Drawing.Point(12, 128);
             this.CalendarDGV.Name = "CalendarDGV";
-            this.CalendarDGV.Size = new System.Drawing.Size(389, 239);
+            this.CalendarDGV.ReadOnly = true;
+            this.CalendarDGV.RowHeadersVisible = false;
+            this.CalendarDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.CalendarDGV.Size = new System.Drawing.Size(864, 239);
             this.CalendarDGV.TabIndex = 4;
             // 
             // WeekRadio
             // 
             this.WeekRadio.AutoSize = true;
             this.WeekRadio.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.WeekRadio.Location = new System.Drawing.Point(146, 92);
+            this.WeekRadio.Checked = true;
+            this.WeekRadio.Location = new System.Drawing.Point(705, 19);
             this.WeekRadio.Name = "WeekRadio";
             this.WeekRadio.Size = new System.Drawing.Size(54, 17);
-            this.WeekRadio.TabIndex = 5;
+            this.WeekRadio.TabIndex = 1;
+            this.WeekRadio.TabStop = true;
             this.WeekRadio.Text = "Week";
             this.WeekRadio.UseVisualStyleBackColor = false;
             this.WeekRadio.CheckedChanged += new System.EventHandler(this.WeekRadio_CheckedChanged);
@@ -115,12 +125,10 @@
             // 
             this.MonthRadio.AutoSize = true;
             this.MonthRadio.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.MonthRadio.Checked = true;
-            this.MonthRadio.Location = new System.Drawing.Point(249, 92);
+            this.MonthRadio.Location = new System.Drawing.Point(802, 19);
             this.MonthRadio.Name = "MonthRadio";
             this.MonthRadio.Size = new System.Drawing.Size(55, 17);
-            this.MonthRadio.TabIndex = 6;
-            this.MonthRadio.TabStop = true;
+            this.MonthRadio.TabIndex = 2;
             this.MonthRadio.Text = "Month";
             this.MonthRadio.UseVisualStyleBackColor = false;
             this.MonthRadio.CheckedChanged += new System.EventHandler(this.MonthRadio_CheckedChanged);
@@ -130,7 +138,7 @@
             this.DeleteButton.Location = new System.Drawing.Point(249, 410);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 23);
-            this.DeleteButton.TabIndex = 7;
+            this.DeleteButton.TabIndex = 5;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
@@ -140,7 +148,7 @@
             this.EditButton.Location = new System.Drawing.Point(125, 410);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(75, 23);
-            this.EditButton.TabIndex = 8;
+            this.EditButton.TabIndex = 4;
             this.EditButton.Text = "Edit";
             this.EditButton.UseVisualStyleBackColor = true;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
@@ -150,37 +158,37 @@
             this.AddButton.Location = new System.Drawing.Point(12, 410);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 23);
-            this.AddButton.TabIndex = 9;
+            this.AddButton.TabIndex = 3;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // AppointmentButton
             // 
-            this.AppointmentButton.Location = new System.Drawing.Point(469, 144);
+            this.AppointmentButton.Location = new System.Drawing.Point(30, 69);
             this.AppointmentButton.Name = "AppointmentButton";
             this.AppointmentButton.Size = new System.Drawing.Size(119, 23);
-            this.AppointmentButton.TabIndex = 10;
+            this.AppointmentButton.TabIndex = 6;
             this.AppointmentButton.Text = "Appointment Count";
             this.AppointmentButton.UseVisualStyleBackColor = true;
             this.AppointmentButton.Click += new System.EventHandler(this.AppointmentButton_Click);
             // 
             // SchedulesButton
             // 
-            this.SchedulesButton.Location = new System.Drawing.Point(469, 204);
+            this.SchedulesButton.Location = new System.Drawing.Point(30, 129);
             this.SchedulesButton.Name = "SchedulesButton";
             this.SchedulesButton.Size = new System.Drawing.Size(119, 23);
-            this.SchedulesButton.TabIndex = 11;
+            this.SchedulesButton.TabIndex = 7;
             this.SchedulesButton.Text = "Schedules";
             this.SchedulesButton.UseVisualStyleBackColor = true;
             this.SchedulesButton.Click += new System.EventHandler(this.SchedulesButton_Click);
             // 
             // ReportButton
             // 
-            this.ReportButton.Location = new System.Drawing.Point(469, 265);
+            this.ReportButton.Location = new System.Drawing.Point(30, 190);
             this.ReportButton.Name = "ReportButton";
             this.ReportButton.Size = new System.Drawing.Size(119, 23);
-            this.ReportButton.TabIndex = 12;
+            this.ReportButton.TabIndex = 8;
             this.ReportButton.Text = "Reports";
             this.ReportButton.UseVisualStyleBackColor = true;
             this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
@@ -190,7 +198,7 @@
             this.DeleteCustButton.Location = new System.Drawing.Point(20, 190);
             this.DeleteCustButton.Name = "DeleteCustButton";
             this.DeleteCustButton.Size = new System.Drawing.Size(75, 23);
-            this.DeleteCustButton.TabIndex = 13;
+            this.DeleteCustButton.TabIndex = 11;
             this.DeleteCustButton.Text = "Delete";
             this.DeleteCustButton.UseVisualStyleBackColor = true;
             this.DeleteCustButton.Click += new System.EventHandler(this.DeleteCustButton_Click);
@@ -200,7 +208,7 @@
             this.EditCustButton.Location = new System.Drawing.Point(20, 129);
             this.EditCustButton.Name = "EditCustButton";
             this.EditCustButton.Size = new System.Drawing.Size(75, 23);
-            this.EditCustButton.TabIndex = 14;
+            this.EditCustButton.TabIndex = 10;
             this.EditCustButton.Text = "Edit";
             this.EditCustButton.UseVisualStyleBackColor = true;
             this.EditCustButton.Click += new System.EventHandler(this.EditCustButton_Click);
@@ -210,7 +218,7 @@
             this.AddCustButton.Location = new System.Drawing.Point(20, 69);
             this.AddCustButton.Name = "AddCustButton";
             this.AddCustButton.Size = new System.Drawing.Size(75, 23);
-            this.AddCustButton.TabIndex = 15;
+            this.AddCustButton.TabIndex = 9;
             this.AddCustButton.Text = "Add";
             this.AddCustButton.UseVisualStyleBackColor = true;
             this.AddCustButton.Click += new System.EventHandler(this.AddCustButton_Click);
@@ -222,7 +230,7 @@
             this.CustomerGB.Controls.Add(this.EditCustButton);
             this.CustomerGB.Controls.Add(this.DeleteCustButton);
             this.CustomerGB.Controls.Add(this.CustomerLabel);
-            this.CustomerGB.Location = new System.Drawing.Point(662, 75);
+            this.CustomerGB.Location = new System.Drawing.Point(1180, 75);
             this.CustomerGB.Name = "CustomerGB";
             this.CustomerGB.Size = new System.Drawing.Size(122, 374);
             this.CustomerGB.TabIndex = 16;
@@ -231,29 +239,50 @@
             // CalendarGB
             // 
             this.CalendarGB.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.CalendarGB.Controls.Add(this.MonthRadio);
+            this.CalendarGB.Controls.Add(this.WeekRadio);
             this.CalendarGB.Location = new System.Drawing.Point(0, 75);
             this.CalendarGB.Name = "CalendarGB";
-            this.CalendarGB.Size = new System.Drawing.Size(417, 374);
+            this.CalendarGB.Size = new System.Drawing.Size(901, 374);
             this.CalendarGB.TabIndex = 17;
             this.CalendarGB.TabStop = false;
+            // 
+            // ReportsGroupBox
+            // 
+            this.ReportsGroupBox.Controls.Add(this.ReportsLabel);
+            this.ReportsGroupBox.Controls.Add(this.AppointmentButton);
+            this.ReportsGroupBox.Controls.Add(this.ReportButton);
+            this.ReportsGroupBox.Controls.Add(this.SchedulesButton);
+            this.ReportsGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ReportsGroupBox.Location = new System.Drawing.Point(961, 75);
+            this.ReportsGroupBox.Name = "ReportsGroupBox";
+            this.ReportsGroupBox.Size = new System.Drawing.Size(172, 373);
+            this.ReportsGroupBox.TabIndex = 18;
+            this.ReportsGroupBox.TabStop = false;
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.Location = new System.Drawing.Point(1116, 503);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseButton.TabIndex = 12;
+            this.CloseButton.Text = "Close";
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 461);
+            this.ClientSize = new System.Drawing.Size(1324, 538);
+            this.Controls.Add(this.CloseButton);
+            this.Controls.Add(this.ReportsGroupBox);
             this.Controls.Add(this.CustomerGB);
-            this.Controls.Add(this.ReportButton);
-            this.Controls.Add(this.SchedulesButton);
-            this.Controls.Add(this.AppointmentButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.MonthRadio);
-            this.Controls.Add(this.WeekRadio);
             this.Controls.Add(this.CalendarDGV);
             this.Controls.Add(this.CalendarLabel);
-            this.Controls.Add(this.ReportsLabel);
             this.Controls.Add(this.HomeLabel);
             this.Controls.Add(this.CalendarGB);
             this.Name = "MainScreen";
@@ -262,6 +291,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.CalendarDGV)).EndInit();
             this.CustomerGB.ResumeLayout(false);
             this.CustomerGB.PerformLayout();
+            this.CalendarGB.ResumeLayout(false);
+            this.CalendarGB.PerformLayout();
+            this.ReportsGroupBox.ResumeLayout(false);
+            this.ReportsGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +320,7 @@
         private System.Windows.Forms.Button AddCustButton;
         private System.Windows.Forms.GroupBox CustomerGB;
         private System.Windows.Forms.GroupBox CalendarGB;
+        private System.Windows.Forms.GroupBox ReportsGroupBox;
+        private System.Windows.Forms.Button CloseButton;
     }
 }

@@ -103,14 +103,14 @@
             this.TypeBox.Location = new System.Drawing.Point(147, 189);
             this.TypeBox.Name = "TypeBox";
             this.TypeBox.Size = new System.Drawing.Size(100, 20);
-            this.TypeBox.TabIndex = 6;
+            this.TypeBox.TabIndex = 4;
             // 
             // CustomerIdBox
             // 
             this.CustomerIdBox.Location = new System.Drawing.Point(147, 127);
             this.CustomerIdBox.Name = "CustomerIdBox";
             this.CustomerIdBox.Size = new System.Drawing.Size(100, 20);
-            this.CustomerIdBox.TabIndex = 7;
+            this.CustomerIdBox.TabIndex = 3;
             this.CustomerIdBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // SearchBox
@@ -118,7 +118,8 @@
             this.SearchBox.Location = new System.Drawing.Point(147, 63);
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(100, 20);
-            this.SearchBox.TabIndex = 8;
+            this.SearchBox.TabIndex = 1;
+            this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
             // 
             // EndPicker
             // 
@@ -126,7 +127,9 @@
             this.EndPicker.Location = new System.Drawing.Point(147, 310);
             this.EndPicker.Name = "EndPicker";
             this.EndPicker.Size = new System.Drawing.Size(200, 20);
-            this.EndPicker.TabIndex = 9;
+            this.EndPicker.TabIndex = 6;
+            this.EndPicker.Value = new System.DateTime(2019, 7, 25, 20, 9, 48, 0);
+            this.EndPicker.ValueChanged += new System.EventHandler(this.EndPicker_ValueChanged);
             // 
             // StartPicker
             // 
@@ -134,14 +137,16 @@
             this.StartPicker.Location = new System.Drawing.Point(147, 246);
             this.StartPicker.Name = "StartPicker";
             this.StartPicker.Size = new System.Drawing.Size(200, 20);
-            this.StartPicker.TabIndex = 10;
+            this.StartPicker.TabIndex = 5;
+            this.StartPicker.Value = new System.DateTime(2019, 7, 25, 12, 0, 0, 0);
+            this.StartPicker.ValueChanged += new System.EventHandler(this.StartPicker_ValueChanged);
             // 
             // CancelButton
             // 
             this.CancelButton.Location = new System.Drawing.Point(253, 389);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 11;
+            this.CancelButton.TabIndex = 8;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.button1_Click);
@@ -151,18 +156,20 @@
             this.SaveButton.Location = new System.Drawing.Point(147, 389);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveButton.TabIndex = 12;
+            this.SaveButton.TabIndex = 7;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // SearchButton
             // 
             this.SearchButton.Location = new System.Drawing.Point(253, 60);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(75, 23);
-            this.SearchButton.TabIndex = 13;
+            this.SearchButton.TabIndex = 2;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // EditAppointment
             // 
