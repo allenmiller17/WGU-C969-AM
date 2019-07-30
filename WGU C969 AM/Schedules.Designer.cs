@@ -36,10 +36,13 @@
             // 
             // SchedulesDGV
             // 
+            this.SchedulesDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.SchedulesDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SchedulesDGV.Location = new System.Drawing.Point(37, 104);
             this.SchedulesDGV.Name = "SchedulesDGV";
+            this.SchedulesDGV.RowHeadersVisible = false;
             this.SchedulesDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.SchedulesDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SchedulesDGV.Size = new System.Drawing.Size(707, 274);
             this.SchedulesDGV.TabIndex = 0;
             this.SchedulesDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SchedulesDGV_CellContentClick);

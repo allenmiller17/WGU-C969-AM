@@ -41,6 +41,7 @@ namespace WGU_C969_AM
 
         public static Array getCalendar(bool weekView)
         {
+
             MySqlConnection n = new MySqlConnection(Data.conString);
             n.Open();
 
@@ -98,12 +99,12 @@ namespace WGU_C969_AM
                 DateTime endTime = DateTime.Parse(app.Value["end"].ToString());
                 DateTime today = DateTime.UtcNow;
 
-                if (weekView)
+                if (weekView == true)
                 {
                     DateTime sunday = today.AddDays(-(int)today.DayOfWeek);
                     DateTime saturday = today.AddDays(-(int)today.DayOfWeek + (int)DayOfWeek.Saturday);
 
-                    if (startTime >= sunday && endTime < saturday)
+                    if (startTime >= sunday && endTime <= saturday)
                     {
                         // only include the appointments that get here
                         parsedAppointments.Add(app.Key, app.Value);
@@ -112,8 +113,11 @@ namespace WGU_C969_AM
                 else
                 {
                     DateTime firstDayOfMonth = new DateTime(today.Year, today.Month, 1);
-                    DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-                    if (startTime >= firstDayOfMonth && endTime < lastDayOfMonth)
+                    DateTime lastDayOfMonth = new DateTime(today.Year,
+                                   today.Month,
+                                   DateTime.DaysInMonth(today.Year,
+                                                        today.Month)); ;
+                    if (startTime >= firstDayOfMonth && endTime <= lastDayOfMonth)
                     {
                         //  only include appointments that get here
                         parsedAppointments.Add(app.Key, app.Value);
@@ -140,13 +144,16 @@ namespace WGU_C969_AM
 
         public void calendarUpdate()
         {
+            bool weekView = true;
+
             if (WeekRadio.Checked)
             {
-                CalendarDGV.DataSource = getCalendar(WeekRadio.Checked);
+                CalendarDGV.DataSource = getCalendar(weekView);
             }
             else
             {
-                CalendarDGV.DataSource = getCalendar(MonthRadio.Checked);
+                weekView = false;
+                CalendarDGV.DataSource = getCalendar(weekView);
             }
         }
         
@@ -212,7 +219,7 @@ namespace WGU_C969_AM
             deleteAppointment.Show();
         }
 
-        private void WeekRadio_CheckedChanged(object sender, EventArgs e)
+        public void WeekRadio_CheckedChanged(object sender, EventArgs e)
         {
             calendarUpdate();
         }

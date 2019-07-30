@@ -58,8 +58,7 @@ namespace WGU_C969_AM
 
         private void SchedulesDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            SchedulesDGV.AutoResizeColumns();
-            SchedulesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
         }
     }
 }
