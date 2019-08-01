@@ -72,8 +72,8 @@ namespace WGU_C969_AM
         private void AddAppointmentButton_Click(object sender, EventArgs e)
         {
             string timeStamp = Data.createTimestamp();
-            int userId = Data.getCurrentUserId();
-            string username = Data.getCurrentUserName();
+            int userId = Data.getUserId();
+            string username = Data.getUserName();
 
             DateTime startTime = StartPicker.Value.ToUniversalTime();
             DateTime endTime = EndPicker.Value.ToUniversalTime();

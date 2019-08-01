@@ -41,11 +41,11 @@ namespace WGU_C969_AM
             if (d.HasRows)
             {
                 d.Read();
-                Data.setCurrentUserId(Convert.ToInt32(d[0]));
+                Data.setUserId(Convert.ToInt32(d[0]));
                 Data.setCurrentUserName(userName);
                 d.Close();
                 u.Close();
-                return Data.getCurrentUserId();
+                return Data.getUserId();
             }
             return 0;
         }
@@ -67,7 +67,7 @@ namespace WGU_C969_AM
                 this.Hide();
                 MainScreen mainScreen = new MainScreen();
                 //mainScreen.loginForm = this;
-                Log.userLoginLog(Data.getCurrentUserId());
+                Log.userLoginLog(Data.getUserId());
                 mainScreen.Show();
             }
             else

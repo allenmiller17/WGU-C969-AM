@@ -28,7 +28,7 @@ namespace WGU_C969_AM
         private void CreateButton_Click(object sender, EventArgs e)
         {
             string timeStamp = Data.createTimestamp();
-            string username = Data.getCurrentUserName();
+            string username = Data.getUserName();
 
             if (string.IsNullOrEmpty(NameBox.Text) ||
                 string.IsNullOrEmpty(PhoneBox.Text) ||

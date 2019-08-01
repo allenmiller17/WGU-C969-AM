@@ -46,7 +46,7 @@ namespace WGU_C969_AM
             n.Open();
 
             // Queries the DataBase for all the appointments associated with the logged in user
-            string query = $"SELECT customerId, type, start, end, appointmentId, userId FROM appointment WHERE userid = '{Data.getCurrentUserId()}'";
+            string query = $"SELECT customerId, type, start, end, appointmentId, userId FROM appointment WHERE userid = '{Data.getUserId()}'";
             MySqlCommand c = new MySqlCommand(query, n);
             MySqlDataReader r = c.ExecuteReader();
 

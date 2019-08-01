@@ -35,7 +35,7 @@ namespace WGU_C969_AM
             //Edits Customer Table
             string newEdit =    $"UPDATE customer" +
                                 $" SET customerName = '{editedForm["customerName"]}', active = '{editedForm["active"]}', lastUpdate = '{Data.createTimestamp()}'," +
-                                $"lastUpdateBy = '{Data.getCurrentUserName()}'" +
+                                $"lastUpdateBy = '{Data.getUserName()}'" +
                                 $" WHERE customerName = '{custForm["customerName"]}'";
             MySqlCommand cmd = new MySqlCommand(newEdit, con);
             int customerEdited = cmd.ExecuteNonQuery();
@@ -45,7 +45,7 @@ namespace WGU_C969_AM
             //Edits Address Table
             newEdit =           $"UPDATE address" +
                                 $" SET address = '{editedForm["address"]}', postalCode = '{editedForm["zip"]}', phone = '{editedForm["phone"]}'," +
-                                $" lastUpdate = '{Data.createTimestamp()}', lastUpdateBy = '{Data.getCurrentUserName()}'" +
+                                $" lastUpdate = '{Data.createTimestamp()}', lastUpdateBy = '{Data.getUserName()}'" +
                                 $" WHERE address = '{custForm["address"]}'";
             cmd = new MySqlCommand(newEdit, con);
             int addressEdited = cmd.ExecuteNonQuery();
@@ -54,7 +54,7 @@ namespace WGU_C969_AM
             #region Edit City
             newEdit = $"UPDATE city" +
                     $" SET city = '{editedForm["city"]}'," +
-                    $" lastUpdate = '{Data.createTimestamp()}', lastUpdateBy = '{Data.getCurrentUserName()}'" +
+                    $" lastUpdate = '{Data.createTimestamp()}', lastUpdateBy = '{Data.getUserName()}'" +
                     $" WHERE city = '{custForm["city"]}'";
             cmd = new MySqlCommand(newEdit, con);
             int cityEdited = cmd.ExecuteNonQuery();
@@ -63,7 +63,7 @@ namespace WGU_C969_AM
             #region Edit Country
             newEdit = $"UPDATE country" +
                     $" SET country = '{editedForm["country"]}'," +
-                    $" lastUpdate = '{Data.createTimestamp()}', lastUpdateBy = '{Data.getCurrentUserName()}'" +
+                    $" lastUpdate = '{Data.createTimestamp()}', lastUpdateBy = '{Data.getUserName()}'" +
                     $" WHERE country = '{custForm["country"]}'";
             cmd = new MySqlCommand(newEdit, con);
             int countryEdited = cmd.ExecuteNonQuery();

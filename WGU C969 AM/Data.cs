@@ -12,28 +12,28 @@ namespace WGU_C969_AM
     class Data
     {
         private static Dictionary<int, Hashtable> _appointments = new Dictionary<int, Hashtable>();
-        private static int _currentUserId;
-        private static string _currentUserName;
+        private static int userId;
+        private static string userName;
         public static string conString = "server=52.206.157.109;database=U04Lvo;uid=U04Lvo;pwd=53688274279;";
 
-        public static int getCurrentUserId()
+        public static int getUserId()
         {
-            return _currentUserId;
+            return userId;
         }
 
-        public static void setCurrentUserId(int currentUserId)
+        public static void setUserId(int currentUserId)
         {
-            _currentUserId = currentUserId;
+            userId = currentUserId;
         }
 
-        public static string getCurrentUserName()
+        public static string getUserName()
         {
-            return _currentUserName;
+            return userName;
         }
 
         public static void setCurrentUserName(string currentUserName)
         {
-            _currentUserName = currentUserName;
+            userName = currentUserName;
         }
 
         public static Dictionary<int, Hashtable> getAppointments()

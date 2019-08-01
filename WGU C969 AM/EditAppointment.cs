@@ -30,7 +30,7 @@ namespace WGU_C969_AM
             //Update Customer Table
             string editRecord = $"UPDATE appointment" +
                                 $" SET customerId = '{editedForm["customerId"]}', start = '{editedForm["start"]}', end = '{editedForm["end"]}'," +
-                                $" type = '{editedForm["type"]}', lastUpdate = '{Data.createTimestamp()}', lastUpdateBy = '{Data.getCurrentUserName()}'" +
+                                $" type = '{editedForm["type"]}', lastUpdate = '{Data.createTimestamp()}', lastUpdateBy = '{Data.getUserName()}'" +
                                 $" WHERE appointmentId = '{form["appointmentId"]}'";
 
             MySqlCommand cmd = new MySqlCommand(editRecord, con);
