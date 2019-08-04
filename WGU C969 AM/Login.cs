@@ -20,7 +20,10 @@ namespace WGU_C969_AM
         {
             InitializeComponent();
 
-            if (CultureInfo.CurrentUICulture.LCID == 2058)
+            CultureInfo culture = CultureInfo.CurrentCulture;
+            CultureInfo main = new CultureInfo("en-US");
+
+            if (culture.EnglishName != main.EnglishName)
             {
                 LoginLabel.Text = "Por favor Iniciar sesión";
                 UsernameLabel.Text = "Nombre de usuario";

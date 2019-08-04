@@ -18,6 +18,7 @@ namespace WGU_C969_AM
         public EditAppointment()
         {
             InitializeComponent();
+            openForm();
         }
 
         public static Dictionary<string, string> form = new Dictionary<string, string>();
@@ -46,8 +47,6 @@ namespace WGU_C969_AM
             }
         }
 
-       
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
@@ -68,16 +67,24 @@ namespace WGU_C969_AM
 
         }
 
-        private void SearchButton_Click(object sender, EventArgs e)
+        private void openForm()
         {
-            string appointmentId = SearchBox.Text;
+
+
+            string appointmentId = MainScreen.SetApptId;
 
             form = Data.getAppointmentDetails(appointmentId);
 
+            NameBox.Text = MainScreen.SetCustName;
             CustomerIdBox.Text = form["customerId"];
+            ApptBox.Text = appointmentId;
             TypeBox.Text = form["type"];
             StartPicker.Value = DateTime.Parse(Data.convertToTimezone(form["start"]));
             EndPicker.Value = DateTime.Parse(Data.convertToTimezone(form["end"]));
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
         }
 
         private void SaveButton_Click(object sender, EventArgs e)

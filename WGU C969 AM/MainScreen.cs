@@ -20,6 +20,12 @@ namespace WGU_C969_AM
             reminder(CalendarDGV);
         }
 
+        public static string SetApptId = "";
+
+        public static string SetCustName = "";
+
+        bool buttonWasClicked = false;
+
         private void MainScreen_Load(object sender, EventArgs e)
         {
 
@@ -207,16 +213,64 @@ namespace WGU_C969_AM
 
         private void EditButton_Click(object sender, EventArgs e)
         {
+            buttonWasClicked= true;
+            if (buttonWasClicked == true)
+            {
+                int rowIndex = CalendarDGV.CurrentCell.RowIndex;
+
+                SetApptId = CalendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
+
+                SetCustName = CalendarDGV.Rows[rowIndex].Cells[4].Value.ToString();
+
+
+            }
+
             EditAppointment editAppointment = new EditAppointment();
             editAppointment.mainScreen = this;
             editAppointment.Show();
         }
 
+        public static Dictionary<string, string> apptDetails = new Dictionary<string, string>();
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            DeleteAppointment deleteAppointment = new DeleteAppointment();
-            deleteAppointment.mainScreen = this;
-            deleteAppointment.Show();
+            buttonWasClicked = true;
+            if (buttonWasClicked == true)
+            {
+                if (MessageBox.Show("Are you sure you want to delete this customer?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    int rowIndex = CalendarDGV.CurrentCell.RowIndex;
+
+                    string appointmentId = CalendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
+                    apptDetails = Data.getAppointmentDetails(appointmentId);
+
+                    removeAppointment();
+                    calendarUpdate();
+                }
+            }
+        }
+
+        public static bool removeAppointment()
+        {
+            MySqlConnection con = new MySqlConnection(Data.conString);
+            con.Open();
+
+            //Removes Appointment Tied to Customer
+            string remove = $"DELETE FROM appointment" +
+                            $" WHERE appointmentId = '{apptDetails["appointmentId"]}'";
+
+            MySqlCommand cmd = new MySqlCommand(remove, con);
+            int appointmentRemoved = cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            if (appointmentRemoved != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void WeekRadio_CheckedChanged(object sender, EventArgs e)

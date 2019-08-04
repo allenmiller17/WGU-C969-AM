@@ -20,6 +20,9 @@ namespace WGU_C969_AM
             EndPicker.Value = EndPicker.Value.AddHours(1);
         }
 
+        public static Dictionary<string, string> custForm = new Dictionary<string, string>();
+        public static Dictionary<string, string> form = new Dictionary<string, string>();
+
         public static bool ConflictingAppointment(DateTime start, DateTime end)
         {
             foreach (var appointment in Data.getAppointments().Values)
@@ -129,6 +132,22 @@ namespace WGU_C969_AM
         {
             EndPicker.Format = DateTimePickerFormat.Custom;
             EndPicker.CustomFormat = "hh:mm MMMM dd, yyyy";
+        }
+
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+            //int customerId = Data.findCustomer(SearchBox.Text);
+
+            //if (customerId != 0)
+            //{
+            //    custForm = Data.getCustomerDetails(customerId);
+            //    CustomerIdBox.Text = custForm["customerId"];
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Could not locate customer. Please check name and try again.");
+
+            //}
         }
     }
 }

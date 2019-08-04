@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.EditLabel = new System.Windows.Forms.Label();
-            this.SearchLabel = new System.Windows.Forms.Label();
+            this.CustNameLbl = new System.Windows.Forms.Label();
             this.CustomerIdLabel = new System.Windows.Forms.Label();
             this.TypeLabel = new System.Windows.Forms.Label();
             this.StartLabel = new System.Windows.Forms.Label();
             this.EndLabel = new System.Windows.Forms.Label();
             this.TypeBox = new System.Windows.Forms.TextBox();
             this.CustomerIdBox = new System.Windows.Forms.TextBox();
-            this.SearchBox = new System.Windows.Forms.TextBox();
             this.EndPicker = new System.Windows.Forms.DateTimePicker();
             this.StartPicker = new System.Windows.Forms.DateTimePicker();
             this.CancelButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.SearchButton = new System.Windows.Forms.Button();
+            this.NameBox = new System.Windows.Forms.TextBox();
+            this.ApptIdLbl = new System.Windows.Forms.Label();
+            this.ApptBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // EditLabel
@@ -53,19 +54,19 @@
             this.EditLabel.TabIndex = 0;
             this.EditLabel.Text = "Edit Appointment";
             // 
-            // SearchLabel
+            // CustNameLbl
             // 
-            this.SearchLabel.AutoSize = true;
-            this.SearchLabel.Location = new System.Drawing.Point(12, 70);
-            this.SearchLabel.Name = "SearchLabel";
-            this.SearchLabel.Size = new System.Drawing.Size(129, 13);
-            this.SearchLabel.TabIndex = 1;
-            this.SearchLabel.Text = "Search by Appointment Id";
+            this.CustNameLbl.AutoSize = true;
+            this.CustNameLbl.Location = new System.Drawing.Point(12, 70);
+            this.CustNameLbl.Name = "CustNameLbl";
+            this.CustNameLbl.Size = new System.Drawing.Size(82, 13);
+            this.CustNameLbl.TabIndex = 1;
+            this.CustNameLbl.Text = "Customer Name";
             // 
             // CustomerIdLabel
             // 
             this.CustomerIdLabel.AutoSize = true;
-            this.CustomerIdLabel.Location = new System.Drawing.Point(12, 134);
+            this.CustomerIdLabel.Location = new System.Drawing.Point(12, 119);
             this.CustomerIdLabel.Name = "CustomerIdLabel";
             this.CustomerIdLabel.Size = new System.Drawing.Size(63, 13);
             this.CustomerIdLabel.TabIndex = 2;
@@ -74,7 +75,7 @@
             // TypeLabel
             // 
             this.TypeLabel.AutoSize = true;
-            this.TypeLabel.Location = new System.Drawing.Point(12, 196);
+            this.TypeLabel.Location = new System.Drawing.Point(12, 225);
             this.TypeLabel.Name = "TypeLabel";
             this.TypeLabel.Size = new System.Drawing.Size(31, 13);
             this.TypeLabel.TabIndex = 3;
@@ -83,7 +84,7 @@
             // StartLabel
             // 
             this.StartLabel.AutoSize = true;
-            this.StartLabel.Location = new System.Drawing.Point(12, 253);
+            this.StartLabel.Location = new System.Drawing.Point(12, 274);
             this.StartLabel.Name = "StartLabel";
             this.StartLabel.Size = new System.Drawing.Size(55, 13);
             this.StartLabel.TabIndex = 4;
@@ -92,7 +93,7 @@
             // EndLabel
             // 
             this.EndLabel.AutoSize = true;
-            this.EndLabel.Location = new System.Drawing.Point(12, 317);
+            this.EndLabel.Location = new System.Drawing.Point(12, 335);
             this.EndLabel.Name = "EndLabel";
             this.EndLabel.Size = new System.Drawing.Size(52, 13);
             this.EndLabel.TabIndex = 5;
@@ -100,31 +101,24 @@
             // 
             // TypeBox
             // 
-            this.TypeBox.Location = new System.Drawing.Point(147, 189);
+            this.TypeBox.Location = new System.Drawing.Point(147, 218);
             this.TypeBox.Name = "TypeBox";
             this.TypeBox.Size = new System.Drawing.Size(100, 20);
             this.TypeBox.TabIndex = 4;
             // 
             // CustomerIdBox
             // 
-            this.CustomerIdBox.Location = new System.Drawing.Point(147, 127);
+            this.CustomerIdBox.Location = new System.Drawing.Point(147, 112);
             this.CustomerIdBox.Name = "CustomerIdBox";
+            this.CustomerIdBox.ReadOnly = true;
             this.CustomerIdBox.Size = new System.Drawing.Size(100, 20);
             this.CustomerIdBox.TabIndex = 3;
             this.CustomerIdBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // SearchBox
-            // 
-            this.SearchBox.Location = new System.Drawing.Point(147, 63);
-            this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(100, 20);
-            this.SearchBox.TabIndex = 1;
-            this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
-            // 
             // EndPicker
             // 
             this.EndPicker.CustomFormat = "hh:mm tt MMMM dd, yyyy";
-            this.EndPicker.Location = new System.Drawing.Point(147, 310);
+            this.EndPicker.Location = new System.Drawing.Point(147, 329);
             this.EndPicker.Name = "EndPicker";
             this.EndPicker.Size = new System.Drawing.Size(200, 20);
             this.EndPicker.TabIndex = 6;
@@ -134,7 +128,7 @@
             // StartPicker
             // 
             this.StartPicker.CustomFormat = "hh:mm tt MMMM dd, yyyy";
-            this.StartPicker.Location = new System.Drawing.Point(147, 246);
+            this.StartPicker.Location = new System.Drawing.Point(147, 268);
             this.StartPicker.Name = "StartPicker";
             this.StartPicker.Size = new System.Drawing.Size(200, 20);
             this.StartPicker.TabIndex = 5;
@@ -161,34 +155,51 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // SearchButton
+            // NameBox
             // 
-            this.SearchButton.Location = new System.Drawing.Point(253, 60);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 23);
-            this.SearchButton.TabIndex = 2;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            this.NameBox.Location = new System.Drawing.Point(147, 63);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.ReadOnly = true;
+            this.NameBox.Size = new System.Drawing.Size(100, 20);
+            this.NameBox.TabIndex = 1;
+            this.NameBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
+            // 
+            // ApptIdLbl
+            // 
+            this.ApptIdLbl.AutoSize = true;
+            this.ApptIdLbl.Location = new System.Drawing.Point(12, 168);
+            this.ApptIdLbl.Name = "ApptIdLbl";
+            this.ApptIdLbl.Size = new System.Drawing.Size(78, 13);
+            this.ApptIdLbl.TabIndex = 9;
+            this.ApptIdLbl.Text = "Appointment Id";
+            // 
+            // ApptBox
+            // 
+            this.ApptBox.Location = new System.Drawing.Point(147, 161);
+            this.ApptBox.Name = "ApptBox";
+            this.ApptBox.ReadOnly = true;
+            this.ApptBox.Size = new System.Drawing.Size(100, 20);
+            this.ApptBox.TabIndex = 10;
             // 
             // EditAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 461);
-            this.Controls.Add(this.SearchButton);
+            this.Controls.Add(this.ApptBox);
+            this.Controls.Add(this.ApptIdLbl);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.StartPicker);
             this.Controls.Add(this.EndPicker);
-            this.Controls.Add(this.SearchBox);
+            this.Controls.Add(this.NameBox);
             this.Controls.Add(this.CustomerIdBox);
             this.Controls.Add(this.TypeBox);
             this.Controls.Add(this.EndLabel);
             this.Controls.Add(this.StartLabel);
             this.Controls.Add(this.TypeLabel);
             this.Controls.Add(this.CustomerIdLabel);
-            this.Controls.Add(this.SearchLabel);
+            this.Controls.Add(this.CustNameLbl);
             this.Controls.Add(this.EditLabel);
             this.Name = "EditAppointment";
             this.Text = "Edit Appointment";
@@ -201,18 +212,19 @@
         #endregion
 
         private System.Windows.Forms.Label EditLabel;
-        private System.Windows.Forms.Label SearchLabel;
+        private System.Windows.Forms.Label CustNameLbl;
         private System.Windows.Forms.Label CustomerIdLabel;
         private System.Windows.Forms.Label TypeLabel;
         private System.Windows.Forms.Label StartLabel;
         private System.Windows.Forms.Label EndLabel;
         private System.Windows.Forms.TextBox TypeBox;
         private System.Windows.Forms.TextBox CustomerIdBox;
-        private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.DateTimePicker EndPicker;
         private System.Windows.Forms.DateTimePicker StartPicker;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.TextBox NameBox;
+        private System.Windows.Forms.Label ApptIdLbl;
+        private System.Windows.Forms.TextBox ApptBox;
     }
 }

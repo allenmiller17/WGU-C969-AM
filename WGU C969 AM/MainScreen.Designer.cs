@@ -48,6 +48,7 @@
             this.CalendarGB = new System.Windows.Forms.GroupBox();
             this.ReportsGroupBox = new System.Windows.Forms.GroupBox();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.Desc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CalendarDGV)).BeginInit();
             this.CustomerGB.SuspendLayout();
             this.CalendarGB.SuspendLayout();
@@ -239,6 +240,7 @@
             // CalendarGB
             // 
             this.CalendarGB.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.CalendarGB.Controls.Add(this.Desc);
             this.CalendarGB.Controls.Add(this.MonthRadio);
             this.CalendarGB.Controls.Add(this.WeekRadio);
             this.CalendarGB.Location = new System.Drawing.Point(0, 75);
@@ -269,6 +271,16 @@
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // Desc
+            // 
+            this.Desc.AutoSize = true;
+            this.Desc.Location = new System.Drawing.Point(136, 23);
+            this.Desc.Name = "Desc";
+            this.Desc.Size = new System.Drawing.Size(528, 13);
+            this.Desc.TabIndex = 19;
+            this.Desc.Text = "Select appointment from calander to edit or delete. Use week and month buttons to" +
+    " view appointment calander";
             // 
             // MainScreen
             // 
@@ -322,5 +334,6 @@
         private System.Windows.Forms.GroupBox CalendarGB;
         private System.Windows.Forms.GroupBox ReportsGroupBox;
         private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Label Desc;
     }
 }

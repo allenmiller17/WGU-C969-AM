@@ -118,6 +118,11 @@
     <Compile Include="Schedules.Designer.cs">
       <DependentUpon>Schedules.cs</DependentUpon>
     </Compile>
+    <Compile Include="U04LvoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>U04LvoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="WorldCountry.cs" />
     <EmbeddedResource Include="AddAppointment.resx">
       <DependentUpon>AddAppointment.cs</DependentUpon>
@@ -170,6 +175,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="U04LvoDataSet.xsc">
+      <DependentUpon>U04LvoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="U04LvoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>U04LvoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="U04LvoDataSet.xss">
+      <DependentUpon>U04LvoDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -39,12 +39,15 @@
             this.CancelAppointmentButton = new System.Windows.Forms.Button();
             this.StartPicker = new System.Windows.Forms.DateTimePicker();
             this.EndPicker = new System.Windows.Forms.DateTimePicker();
+            this.SearchBox = new System.Windows.Forms.TextBox();
+            this.CustSearchLbl = new System.Windows.Forms.Label();
+            this.SearchBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddAppointmentLabel
             // 
             this.AddAppointmentLabel.AutoSize = true;
-            this.AddAppointmentLabel.Location = new System.Drawing.Point(141, 51);
+            this.AddAppointmentLabel.Location = new System.Drawing.Point(141, 20);
             this.AddAppointmentLabel.Name = "AddAppointmentLabel";
             this.AddAppointmentLabel.Size = new System.Drawing.Size(176, 13);
             this.AddAppointmentLabel.TabIndex = 0;
@@ -54,7 +57,7 @@
             // CustomerIdLabel
             // 
             this.CustomerIdLabel.AutoSize = true;
-            this.CustomerIdLabel.Location = new System.Drawing.Point(12, 87);
+            this.CustomerIdLabel.Location = new System.Drawing.Point(12, 113);
             this.CustomerIdLabel.Name = "CustomerIdLabel";
             this.CustomerIdLabel.Size = new System.Drawing.Size(63, 13);
             this.CustomerIdLabel.TabIndex = 1;
@@ -89,7 +92,7 @@
             // 
             // CustomerIdBox
             // 
-            this.CustomerIdBox.Location = new System.Drawing.Point(144, 80);
+            this.CustomerIdBox.Location = new System.Drawing.Point(144, 110);
             this.CustomerIdBox.Name = "CustomerIdBox";
             this.CustomerIdBox.Size = new System.Drawing.Size(100, 20);
             this.CustomerIdBox.TabIndex = 5;
@@ -144,11 +147,40 @@
             this.EndPicker.Value = new System.DateTime(2019, 5, 27, 15, 49, 7, 0);
             this.EndPicker.ValueChanged += new System.EventHandler(this.EndPicker_ValueChanged);
             // 
+            // SearchBox
+            // 
+            this.SearchBox.Location = new System.Drawing.Point(144, 61);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(100, 20);
+            this.SearchBox.TabIndex = 13;
+            // 
+            // CustSearchLbl
+            // 
+            this.CustSearchLbl.AutoSize = true;
+            this.CustSearchLbl.Location = new System.Drawing.Point(12, 61);
+            this.CustSearchLbl.Name = "CustSearchLbl";
+            this.CustSearchLbl.Size = new System.Drawing.Size(82, 13);
+            this.CustSearchLbl.TabIndex = 14;
+            this.CustSearchLbl.Text = "Customer Name";
+            // 
+            // SearchBtn
+            // 
+            this.SearchBtn.Location = new System.Drawing.Point(269, 56);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(75, 23);
+            this.SearchBtn.TabIndex = 15;
+            this.SearchBtn.Text = "Search";
+            this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
+            // 
             // AddAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 461);
+            this.Controls.Add(this.SearchBtn);
+            this.Controls.Add(this.CustSearchLbl);
+            this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.EndPicker);
             this.Controls.Add(this.StartPicker);
             this.Controls.Add(this.CancelAppointmentButton);
@@ -183,6 +215,9 @@
         private System.Windows.Forms.DateTimePicker endTimePicker;
         private System.Windows.Forms.DateTimePicker StartPicker;
         private System.Windows.Forms.DateTimePicker EndPicker;
+        private System.Windows.Forms.TextBox SearchBox;
+        private System.Windows.Forms.Label CustSearchLbl;
+        private System.Windows.Forms.Button SearchBtn;
     }
 }
 
