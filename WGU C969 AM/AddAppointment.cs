@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using System.Data;
 using System.Windows.Forms;
 
 namespace WGU_C969_AM
@@ -91,7 +91,7 @@ namespace WGU_C969_AM
                 {
                     try
                     {
-                        if (outsideOfBusinessHours (startTime, endTime))
+                        if (outsideOfBusinessHours(startTime, endTime))
                         {
                             throw new appointmentException();
                         }
@@ -113,7 +113,7 @@ namespace WGU_C969_AM
 
                 ex.appointmentOverlap();
             }
-
+            mainScreen.calendarUpdate();
             this.Close();
         }
 
@@ -136,18 +136,18 @@ namespace WGU_C969_AM
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            //int customerId = Data.findCustomer(SearchBox.Text);
+            int customerId = Data.findCustomer(SearchBox.Text);
 
-            //if (customerId != 0)
-            //{
-            //    custForm = Data.getCustomerDetails(customerId);
-            //    CustomerIdBox.Text = custForm["customerId"];
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Could not locate customer. Please check name and try again.");
+            if (customerId != 0)
+            {
+                custForm = Data.getCustomerDetails(customerId);
+                CustomerIdBox.Text = custForm["customerId"];
+            }
+            else
+            {
+                MessageBox.Show("Could not locate customer. Please check name and try again.");
 
-            //}
+            }
         }
     }
 }

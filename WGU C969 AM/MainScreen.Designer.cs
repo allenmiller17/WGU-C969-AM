@@ -46,9 +46,9 @@
             this.AddCustButton = new System.Windows.Forms.Button();
             this.CustomerGB = new System.Windows.Forms.GroupBox();
             this.CalendarGB = new System.Windows.Forms.GroupBox();
+            this.Desc = new System.Windows.Forms.Label();
             this.ReportsGroupBox = new System.Windows.Forms.GroupBox();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.Desc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CalendarDGV)).BeginInit();
             this.CustomerGB.SuspendLayout();
             this.CalendarGB.SuspendLayout();
@@ -107,6 +107,7 @@
             this.CalendarDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CalendarDGV.Size = new System.Drawing.Size(864, 239);
             this.CalendarDGV.TabIndex = 4;
+            this.CalendarDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CalendarDGV_CellContentClick);
             // 
             // WeekRadio
             // 
@@ -249,6 +250,16 @@
             this.CalendarGB.TabIndex = 17;
             this.CalendarGB.TabStop = false;
             // 
+            // Desc
+            // 
+            this.Desc.AutoSize = true;
+            this.Desc.Location = new System.Drawing.Point(136, 23);
+            this.Desc.Name = "Desc";
+            this.Desc.Size = new System.Drawing.Size(528, 13);
+            this.Desc.TabIndex = 19;
+            this.Desc.Text = "Select appointment from calander to edit or delete. Use week and month buttons to" +
+    " view appointment calander";
+            // 
             // ReportsGroupBox
             // 
             this.ReportsGroupBox.Controls.Add(this.ReportsLabel);
@@ -271,16 +282,6 @@
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // Desc
-            // 
-            this.Desc.AutoSize = true;
-            this.Desc.Location = new System.Drawing.Point(136, 23);
-            this.Desc.Name = "Desc";
-            this.Desc.Size = new System.Drawing.Size(528, 13);
-            this.Desc.TabIndex = 19;
-            this.Desc.Text = "Select appointment from calander to edit or delete. Use week and month buttons to" +
-    " view appointment calander";
             // 
             // MainScreen
             // 

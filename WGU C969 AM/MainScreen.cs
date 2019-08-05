@@ -37,8 +37,8 @@ namespace WGU_C969_AM
             {
                 DateTime now = DateTime.UtcNow;
                 DateTime start = DateTime.Parse(row.Cells[2].Value.ToString()).ToUniversalTime();
-                TimeSpan toStartOfAppointment = now - start;
-                if (toStartOfAppointment.TotalMinutes >= 15 && toStartOfAppointment.TotalMinutes < 1)
+                TimeSpan toStartOfAppointment = start - now;
+                if (toStartOfAppointment.TotalMinutes <= 15 && toStartOfAppointment.TotalMinutes > 0)
                 {
                     MessageBox.Show($"Reminder: You have a meeting with {row.Cells[4].Value} at {row.Cells[2].Value}");
                 }
@@ -162,7 +162,7 @@ namespace WGU_C969_AM
                 CalendarDGV.DataSource = getCalendar(weekView);
             }
         }
-        
+
         private void AddCustButton_Click(object sender, EventArgs e)
         {
             CreateCustomer createCustomer = new CreateCustomer();
@@ -213,7 +213,7 @@ namespace WGU_C969_AM
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            buttonWasClicked= true;
+            buttonWasClicked = true;
             if (buttonWasClicked == true)
             {
                 int rowIndex = CalendarDGV.CurrentCell.RowIndex;
@@ -236,7 +236,7 @@ namespace WGU_C969_AM
             buttonWasClicked = true;
             if (buttonWasClicked == true)
             {
-                if (MessageBox.Show("Are you sure you want to delete this customer?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to delete this appointment?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     int rowIndex = CalendarDGV.CurrentCell.RowIndex;
 
@@ -286,6 +286,11 @@ namespace WGU_C969_AM
         private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CalendarDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

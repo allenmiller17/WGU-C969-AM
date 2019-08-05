@@ -140,6 +140,7 @@ namespace WGU_C969_AM
 
             Dictionary<string, string> customerDict = new Dictionary<string, string>();
             // Customer Table Details
+            customerDict.Add("customerId", rdr[0].ToString());
             customerDict.Add("customerName", rdr[1].ToString());
             customerDict.Add("addressId", rdr[2].ToString());
             customerDict.Add("active", rdr[3].ToString());
