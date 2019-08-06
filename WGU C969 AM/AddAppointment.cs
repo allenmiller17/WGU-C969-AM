@@ -59,7 +59,23 @@ namespace WGU_C969_AM
 
         private void AddAppointment_Load(object sender, EventArgs e)
         {
+            string query = $"SELECT customerId, customerName FROM customer";
+            MySqlConnection con = new MySqlConnection(Data.conString);
+            con.Open();
+            MySqlCommand sc = new MySqlCommand(query, con);
+            MySqlDataReader reader;
 
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("customerId", typeof(string));
+            dt.Columns.Add("customerName", typeof(string));
+            dt.Load(reader);
+
+            CustomerBox.ValueMember = "customerId";
+            CustomerBox.DisplayMember = "customerName";
+            CustomerBox.DataSource = dt;
+
+            con.Close();
         }
 
         private void CustomerIdBox_TextChanged(object sender, EventArgs e)
@@ -136,7 +152,24 @@ namespace WGU_C969_AM
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            int customerId = Data.findCustomer(SearchBox.Text);
+            //int customerId = Data.findCustomer(CustomerBox.Text);
+
+            //if (customerId != 0)
+            //{
+            //    custForm = Data.getCustomerDetails(customerId);
+            //    CustomerIdBox.Text = custForm["customerId"];
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Could not locate customer. Please check name and try again.");
+
+            //}
+        }
+
+        private void CustomerBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = CustomerBox.SelectedValue.ToString();
+            int customerId = Data.findCustomer(id);
 
             if (customerId != 0)
             {

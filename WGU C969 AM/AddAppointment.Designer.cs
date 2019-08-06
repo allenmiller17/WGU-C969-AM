@@ -39,9 +39,8 @@
             this.CancelAppointmentButton = new System.Windows.Forms.Button();
             this.StartPicker = new System.Windows.Forms.DateTimePicker();
             this.EndPicker = new System.Windows.Forms.DateTimePicker();
-            this.SearchBox = new System.Windows.Forms.TextBox();
             this.CustSearchLbl = new System.Windows.Forms.Label();
-            this.SearchBtn = new System.Windows.Forms.Button();
+            this.CustomerBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AddAppointmentLabel
@@ -96,7 +95,7 @@
             this.CustomerIdBox.Name = "CustomerIdBox";
             this.CustomerIdBox.ReadOnly = true;
             this.CustomerIdBox.Size = new System.Drawing.Size(100, 20);
-            this.CustomerIdBox.TabIndex = 3;
+            this.CustomerIdBox.TabIndex = 2;
             this.CustomerIdBox.TextChanged += new System.EventHandler(this.CustomerIdBox_TextChanged);
             // 
             // TypeBox
@@ -104,7 +103,7 @@
             this.TypeBox.Location = new System.Drawing.Point(144, 154);
             this.TypeBox.Name = "TypeBox";
             this.TypeBox.Size = new System.Drawing.Size(100, 20);
-            this.TypeBox.TabIndex = 4;
+            this.TypeBox.TabIndex = 3;
             this.TypeBox.TextChanged += new System.EventHandler(this.TypeBox_TextChanged);
             // 
             // AddAppointmentButton
@@ -112,7 +111,7 @@
             this.AddAppointmentButton.Location = new System.Drawing.Point(144, 380);
             this.AddAppointmentButton.Name = "AddAppointmentButton";
             this.AddAppointmentButton.Size = new System.Drawing.Size(75, 23);
-            this.AddAppointmentButton.TabIndex = 7;
+            this.AddAppointmentButton.TabIndex = 6;
             this.AddAppointmentButton.Text = "Add";
             this.AddAppointmentButton.UseVisualStyleBackColor = true;
             this.AddAppointmentButton.Click += new System.EventHandler(this.AddAppointmentButton_Click);
@@ -122,7 +121,7 @@
             this.CancelAppointmentButton.Location = new System.Drawing.Point(242, 380);
             this.CancelAppointmentButton.Name = "CancelAppointmentButton";
             this.CancelAppointmentButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelAppointmentButton.TabIndex = 8;
+            this.CancelAppointmentButton.TabIndex = 7;
             this.CancelAppointmentButton.Text = "Cancel";
             this.CancelAppointmentButton.UseVisualStyleBackColor = true;
             this.CancelAppointmentButton.Click += new System.EventHandler(this.CancelAppointmentButton_Click);
@@ -134,7 +133,7 @@
             this.StartPicker.Location = new System.Drawing.Point(144, 227);
             this.StartPicker.Name = "StartPicker";
             this.StartPicker.Size = new System.Drawing.Size(200, 20);
-            this.StartPicker.TabIndex = 5;
+            this.StartPicker.TabIndex = 4;
             this.StartPicker.Value = new System.DateTime(2019, 8, 5, 0, 0, 0, 0);
             this.StartPicker.ValueChanged += new System.EventHandler(this.StartPicker_ValueChanged);
             // 
@@ -144,16 +143,9 @@
             this.EndPicker.Location = new System.Drawing.Point(144, 320);
             this.EndPicker.Name = "EndPicker";
             this.EndPicker.Size = new System.Drawing.Size(200, 20);
-            this.EndPicker.TabIndex = 6;
+            this.EndPicker.TabIndex = 5;
             this.EndPicker.Value = new System.DateTime(2019, 8, 5, 0, 0, 0, 0);
             this.EndPicker.ValueChanged += new System.EventHandler(this.EndPicker_ValueChanged);
-            // 
-            // SearchBox
-            // 
-            this.SearchBox.Location = new System.Drawing.Point(144, 61);
-            this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(100, 20);
-            this.SearchBox.TabIndex = 1;
             // 
             // CustSearchLbl
             // 
@@ -164,24 +156,22 @@
             this.CustSearchLbl.TabIndex = 14;
             this.CustSearchLbl.Text = "Customer Name";
             // 
-            // SearchBtn
+            // CustomerBox
             // 
-            this.SearchBtn.Location = new System.Drawing.Point(269, 56);
-            this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(75, 23);
-            this.SearchBtn.TabIndex = 2;
-            this.SearchBtn.Text = "Search";
-            this.SearchBtn.UseVisualStyleBackColor = true;
-            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
+            this.CustomerBox.FormattingEnabled = true;
+            this.CustomerBox.Location = new System.Drawing.Point(144, 56);
+            this.CustomerBox.Name = "CustomerBox";
+            this.CustomerBox.Size = new System.Drawing.Size(121, 21);
+            this.CustomerBox.TabIndex = 1;
+            this.CustomerBox.SelectedIndexChanged += new System.EventHandler(this.CustomerBox_SelectedIndexChanged);
             // 
             // AddAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 461);
-            this.Controls.Add(this.SearchBtn);
+            this.Controls.Add(this.CustomerBox);
             this.Controls.Add(this.CustSearchLbl);
-            this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.EndPicker);
             this.Controls.Add(this.StartPicker);
             this.Controls.Add(this.CancelAppointmentButton);
@@ -216,9 +206,8 @@
         private System.Windows.Forms.DateTimePicker endTimePicker;
         private System.Windows.Forms.DateTimePicker StartPicker;
         private System.Windows.Forms.DateTimePicker EndPicker;
-        private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Label CustSearchLbl;
-        private System.Windows.Forms.Button SearchBtn;
+        private System.Windows.Forms.ComboBox CustomerBox;
     }
 }
 

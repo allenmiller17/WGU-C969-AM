@@ -20,18 +20,7 @@ namespace WGU_C969_AM
         {
             InitializeComponent();
 
-            CultureInfo culture = CultureInfo.CurrentCulture;
-            CultureInfo main = new CultureInfo("en-US");
-
-            if (culture.EnglishName != main.EnglishName)
-            {
-                LoginLabel.Text = "Por favor Iniciar sesión";
-                UsernameLabel.Text = "Nombre de usuario";
-                PasswordLabel.Text = "Contraseña";
-                LoginButton.Text = "Iniciar sesión";
-                ExitButton.Text = "Salida";
-                ErrorMessage = "El nombre de usuario y la contraseña no coinciden";
-            }
+            LanguageCheck();
         }
 
         static public int LookUpUser(string userName, string password)
@@ -56,6 +45,26 @@ namespace WGU_C969_AM
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        //Checks to see if the devices language is set to American English. If not translates to Spanish.
+        public void LanguageCheck()
+        {
+
+
+            CultureInfo culture = CultureInfo.CurrentCulture;
+            CultureInfo main = new CultureInfo("en-US");
+            CultureInfo sp = new CultureInfo("es-ES");
+
+            if (culture.EnglishName != main.EnglishName)
+            {
+                LoginLabel.Text = "Por favor Iniciar sesión";
+                UsernameLabel.Text = "Nombre de usuario";
+                PasswordLabel.Text = "Contraseña";
+                LoginButton.Text = "Iniciar sesión";
+                ExitButton.Text = "Salida";
+                ErrorMessage = "El nombre de usuario y la contraseña no coinciden";
+            }
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
