@@ -141,13 +141,13 @@ namespace WGU_C969_AM
         private void StartPicker_ValueChanged(object sender, EventArgs e)
         {
             StartPicker.Format = DateTimePickerFormat.Custom;
-            StartPicker.CustomFormat = "hh:mm MMMM dd, yyyy";
+            StartPicker.CustomFormat = "hh:mm tt MMMM dd, yyyy";
         }
 
         private void EndPicker_ValueChanged(object sender, EventArgs e)
         {
             EndPicker.Format = DateTimePickerFormat.Custom;
-            EndPicker.CustomFormat = "hh:mm MMMM dd, yyyy";
+            EndPicker.CustomFormat = "hh:mm tt MMMM dd, yyyy";
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)

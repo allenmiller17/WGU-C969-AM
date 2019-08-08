@@ -78,8 +78,8 @@ namespace WGU_C969_AM
             {
                 this.Hide();
                 MainScreen mainScreen = new MainScreen();
-                //mainScreen.loginForm = this;
-                Log.userLoginLog(Data.getUserId());
+                mainScreen.login = this;
+                InfoLog.userLoginLog(Data.getUserId());
                 mainScreen.Show();
             }
             else

@@ -128,9 +128,10 @@
             // 
             // StartPicker
             // 
-            this.StartPicker.CustomFormat = "hh:mm tt MMMM dd, yyyy";
+            this.StartPicker.CustomFormat = "hh:mm tt   MMMM dd, yyyy";
             this.StartPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.StartPicker.Location = new System.Drawing.Point(144, 227);
+            this.StartPicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.StartPicker.Name = "StartPicker";
             this.StartPicker.Size = new System.Drawing.Size(200, 20);
             this.StartPicker.TabIndex = 4;
@@ -139,8 +140,9 @@
             // 
             // EndPicker
             // 
-            this.EndPicker.CustomFormat = "hh:mm tt MMMM dd, yyyy";
+            this.EndPicker.CustomFormat = "hh:mm tt   MMMM dd, yyyy";
             this.EndPicker.Location = new System.Drawing.Point(144, 320);
+            this.EndPicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.EndPicker.Name = "EndPicker";
             this.EndPicker.Size = new System.Drawing.Size(200, 20);
             this.EndPicker.TabIndex = 5;

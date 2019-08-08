@@ -7,14 +7,15 @@ using System.IO;
 
 namespace WGU_C969_AM
 {
-    class Log
+    class InfoLog
     {
-        public static void userLoginLog (int userId)
+        public static void userLoginLog(int userId)
         {
-            string path = "log.text";
+            //string path = "/log.txt";
             string log = $"User with ID of {userId} logged in at {Data.createTimestamp()}" + Environment.NewLine;
 
-            File.AppendAllText(path, log);
+            File.AppendAllText("log.txt", log);
+
         }
     }
 }

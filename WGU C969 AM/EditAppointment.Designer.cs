@@ -119,6 +119,7 @@
             // 
             this.EndPicker.CustomFormat = "hh:mm tt MMMM dd, yyyy";
             this.EndPicker.Location = new System.Drawing.Point(147, 329);
+            this.EndPicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.EndPicker.Name = "EndPicker";
             this.EndPicker.Size = new System.Drawing.Size(200, 20);
             this.EndPicker.TabIndex = 6;
@@ -129,6 +130,7 @@
             // 
             this.StartPicker.CustomFormat = "hh:mm tt MMMM dd, yyyy";
             this.StartPicker.Location = new System.Drawing.Point(147, 268);
+            this.StartPicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.StartPicker.Name = "StartPicker";
             this.StartPicker.Size = new System.Drawing.Size(200, 20);
             this.StartPicker.TabIndex = 5;
