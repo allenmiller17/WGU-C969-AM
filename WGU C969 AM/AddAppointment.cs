@@ -59,6 +59,9 @@ namespace WGU_C969_AM
 
         private void AddAppointment_Load(object sender, EventArgs e)
         {
+            StartPicker.Value = DateTime.Now;
+            EndPicker.Value = DateTime.Now.AddMinutes(60);
+
             string query = $"SELECT customerId, customerName FROM customer";
             MySqlConnection con = new MySqlConnection(Data.conString);
             con.Open();
@@ -101,7 +104,7 @@ namespace WGU_C969_AM
             {
                 if (ConflictingAppointment(startTime, endTime))
                 {
-                    //throw new appointmentException();
+                    throw new appointmentException();
                 }
                 else
                 {

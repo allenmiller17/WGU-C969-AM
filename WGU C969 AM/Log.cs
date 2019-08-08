@@ -11,7 +11,7 @@ namespace WGU_C969_AM
     {
         public static void userLoginLog(int userId)
         {
-            //string path = "/log.txt";
+            //located under bin/debug in project file
             string log = $"User with ID of {userId} logged in at {Data.createTimestamp()}" + Environment.NewLine;
 
             File.AppendAllText("log.txt", log);

@@ -47,6 +47,35 @@ namespace WGU_C969_AM
             }
         }
 
+        public static bool ConflictingAppointment(DateTime start, DateTime end)
+        {
+            foreach (var appointment in Data.getAppointments().Values)
+            {
+                if (start < DateTime.Parse(appointment["end"].ToString()) && DateTime.Parse(appointment["start"].ToString()) < end)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool outsideOfBusinessHours(DateTime startTime, DateTime endTime)
+        {
+            startTime = startTime.ToLocalTime();
+            endTime = endTime.ToLocalTime();
+
+            //Business Hours 9:00 am to 5:00 pm
+            DateTime businessStartTime = DateTime.Today.AddHours(9);
+            DateTime businessEndTime = DateTime.Today.AddHours(17);
+            if (startTime.TimeOfDay >= businessStartTime.TimeOfDay && startTime.TimeOfDay < businessEndTime.TimeOfDay &&
+                endTime.TimeOfDay > businessStartTime.TimeOfDay && endTime.TimeOfDay <= businessEndTime.TimeOfDay)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
@@ -59,7 +88,8 @@ namespace WGU_C969_AM
 
         private void EditAppointment_Load(object sender, EventArgs e)
         {
-
+            StartPicker.Value = DateTime.Now;
+            EndPicker.Value = DateTime.Now.AddMinutes(60);
         }
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
@@ -91,23 +121,57 @@ namespace WGU_C969_AM
         {
             Dictionary<string, string> form = new Dictionary<string, string>();
 
-            form.Add("type", TypeBox.Text);
-            form.Add("customerId", CustomerIdBox.Text);
-            form.Add("start", StartPicker.Value.ToUniversalTime().ToString("u"));
-            form.Add("end", EndPicker.Value.ToUniversalTime().ToString("u"));
+            string timeStamp = Data.createTimestamp();
+            int userId = Data.getUserId();
+            string username = Data.getUserName();
 
-            if (editAppointment(form))
-            {
-                mainScreen.calendarUpdate();
-                MessageBox.Show("Update Successful");
-            }
-            else
-            {
-                MessageBox.Show("Could not update appointment.");
-            }
+            DateTime startTime = StartPicker.Value.ToUniversalTime();
+            DateTime endTime = EndPicker.Value.ToUniversalTime();
 
+            try
+            {
+                if (ConflictingAppointment(startTime, endTime))
+                {
+                    throw new appointmentException();
+                }
+                else
+                {
+                    try
+                    {
+                        if (outsideOfBusinessHours(startTime, endTime))
+                        {
+                            throw new appointmentException();
+                        }
+                        else
+                        {
+                            form.Add("type", TypeBox.Text);
+                            form.Add("customerId", CustomerIdBox.Text);
+                            form.Add("start", StartPicker.Value.ToUniversalTime().ToString("u"));
+                            form.Add("end", EndPicker.Value.ToUniversalTime().ToString("u"));
+
+                            if (editAppointment(form))
+                            {
+                                mainScreen.calendarUpdate();
+                                MessageBox.Show("Update Successful");
+                            }
+                        }
+                    }
+                    catch (appointmentException ex)
+                    {
+
+                        ex.outsideOfBusinessHours();
+                    }
+                }
+            }
+            catch (appointmentException ex)
+            {
+
+                ex.appointmentOverlap();
+            }
+            mainScreen.calendarUpdate();
             this.Close();
         }
+        
 
         private void StartPicker_ValueChanged(object sender, EventArgs e)
         {
